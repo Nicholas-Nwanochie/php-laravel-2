@@ -8,7 +8,7 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function showusers($id)
+    public function showuser($id)
     {
 $user = User:: findorfail ($id);
       return view('home2',compact('user'));
@@ -26,7 +26,7 @@ $user = User:: findorfail ($id);
         $request->validate([
 "fname" => 'required',
             "lname" => 'required',
-            "email" => 'required|email',
+            "email" => 'required|email|unique:users',
             "password" => 'required'
 
         ]);
@@ -38,5 +38,17 @@ $user->fname = $request->fname;
         $user->notes = $request->notes;
         $user->save();
         return redirect()->back()->with('success','user has been added');
+    }
+
+    public function showusers(){
+$users = User::paginate(3);
+return view('users',compact('users'));
+    }
+
+
+    public function viewuser($id)
+    {
+        $users = User::findorfail($id);
+        return view('viewuser', compact('users'));
     }
 }

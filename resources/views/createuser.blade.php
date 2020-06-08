@@ -16,10 +16,10 @@
 
 <form method="POST" action="{{route('createuser')}}">
     @csrf
-    <input placeholder="fname" type="text" name="fname" value="{{old('fname')}}"><br />
-    <input placeholder="lname" type="text" name="lname" value="{{old('lname')}}"><br />
-    <input placeholder="email" type="text" name="email" value="{{old('email')}}"><br />
-    <input placeholder="password" type="password" name="password" value="{{old('password')}}"><br />
+    <input placeholder="fname" type="text" name="fname" value="{{old('fname')}}" required><br />
+    <input placeholder="lname" type="text" name="lname" value="{{old('lname')}}" required><br />
+    <input placeholder="email" type="text" name="email" value="{{old('email')}}" required><br />
+    <input placeholder="password" type="password" name="password" value="{{old('password')}}" required><br />
     <textarea name="notes"></textarea><br />
 
     <button type="submit">enter</button>

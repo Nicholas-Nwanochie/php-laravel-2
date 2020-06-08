@@ -17,14 +17,15 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/users/user/{id}', 'UserController@showusers');
+// Route::get('/users/user/{id}', 'UserController@showuser');
 
 Route::get('/users/create',  'UserController@createuser');
 
 Route::post('/users/create',  'UserController@saveuser')->name('createuser');
 
+Route::get('/users', 'UserController@showusers');
 
-
+Route::get('/users/view/{id}', 'UserController@viewuser');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
